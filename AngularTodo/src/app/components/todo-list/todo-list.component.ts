@@ -14,8 +14,8 @@ export class TodoListComponent implements OnInit {
   inputName?:String="";
   inputDescription?:String="";
 
-  // store test data to ensure TodoStorageService is working
-  dataStorageTest:string="";
+  inputStorageName?:String="";
+  inputDescriptionName?:String="";
 
   constructor(private service: TodoStorageService) { }
 
@@ -51,8 +51,8 @@ export class TodoListComponent implements OnInit {
   }
 
   // methods to interact with the data storage service
-  storeItem(value:string, id:number) {
-    this.service.setItem(this.service.todoItemStorage[id], value);
+  storeItem(id:number) {
+    this.service.setItem(this.service.todoItemStorage[id], this.inputStorageName!.toString());
   }
 
   getItem(id:number) {

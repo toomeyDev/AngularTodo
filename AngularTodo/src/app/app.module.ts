@@ -8,13 +8,15 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { TodoStorageService } from './todo-storage.service';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoItemComponent,
-    AboutComponent
+    AboutComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

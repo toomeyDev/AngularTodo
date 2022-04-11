@@ -8,12 +8,14 @@ h1 {
 }
 
 header {
-    background-color: wheat;;
+    background-color: rgb(252, 237, 209);
+    border-top: 5px ridge black;
 }
 
 header nav {
     display: flex;
     justify-content: space-around;
+    background-color: rgb(206, 200, 179);
 }
 
 header a {
@@ -22,4 +24,9 @@ header a {
     padding: 2%;
     margin: 1%;
     border-bottom: 2px solid rgb(231, 214, 182);
+}
+
+header a:hover {
+    background-color: antiquewhite;
+    color: red;
 }

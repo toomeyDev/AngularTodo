@@ -1,7 +1,8 @@
 <div class="TodoList">
     <h2>Todo List</h2>
     <form>
-        <input type="text" name="inputItem" placeholder="Enter item name..."class="ItemInput"[(ngModel)]="inputItem"/>
+        <input type="text" name="inputName" placeholder="Enter item name..." class="NameInput"[(ngModel)]="inputName"/>
+        <input type="text" name="inputDescription" placeholder="Enter item description" class="DescriptionInput"[(ngModel)]="inputDescription"/>
         <input type="submit" value="Add Task" class="itemSubmit" (click)="addItem()">
     </form>
     <div *ngFor="let item of todoItems; let id = index;" 

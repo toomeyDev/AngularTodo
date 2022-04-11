@@ -9,16 +9,16 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 export class TodoListComponent implements OnInit {
 
   todoItems?:TodoItemComponent[];
-  inputItem?:String="";
-
+  inputName?:String="";
+  inputDescription?:String="";
 
   constructor() { }
 
   ngOnInit(): void {
     this.todoItems = [
-      new TodoItemComponent(),
-      new TodoItemComponent(),
-      new TodoItemComponent()
+      new TodoItemComponent("Task", "A task that needs doing"),
+      new TodoItemComponent("Important Task", "An important task."),
+      new TodoItemComponent("Buy Groceries", "Need to buy groceries.")
     ];
   }
 
@@ -34,10 +34,15 @@ export class TodoListComponent implements OnInit {
   }
 
   addItem() {
+    // assign default values for the forms if none are present at time of method trigger
+    if(!this.inputName) this.inputName = "Task Name";
+    if(!this.inputDescription) this.inputDescription = "Description";
     this.todoItems?.push(
-      new TodoItemComponent(this.inputItem, "Description")
+      new TodoItemComponent(this.inputName, this.inputDescription)
       // add a new task with the given name, description to end of tasks list
     )
+    this.inputName=""; 
+    this.inputDescription="";
   }
 
 }

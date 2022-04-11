@@ -1,0 +1,8 @@
+<div class="TodoList">
+    <div class="TodoItem" *ngFor="let item of todoItems; let i = index;">
+        <div class="idNum">{{i}}</div>
+        <div class="content">{{item.name}}</div>
+        <button class="delete">Delete</button>
+        <button class="recolor">Recolor</button>
+    </div>
+</div>

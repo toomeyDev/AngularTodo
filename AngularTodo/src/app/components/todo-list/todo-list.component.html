@@ -1,5 +1,9 @@
 <div class="TodoList">
     <h2>Todo List</h2>
+    <form>
+        <input type="text" name="inputItem" placeholder="Enter item name..."class="ItemInput"[(ngModel)]="inputItem"/>
+        <input type="submit" value="Add Task" class="itemSubmit" (click)="addItem()">
+    </form>
     <div *ngFor="let item of todoItems; let id = index;" 
     class="TodoItem {{ (item.isComplete ? 'completed' : '') }}" (click)="toggleFinished(id)">
         

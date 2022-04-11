@@ -7,6 +7,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { TodoStorageService } from './todo-storage.service';
 
 @NgModule({
   declarations: [

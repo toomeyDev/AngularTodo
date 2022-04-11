@@ -100,3 +100,13 @@ button:hover {
     text-decoration: line-through;
     color: red;
 }
+
+.StorageControls {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(252, 237, 209);
+    padding: 0.25%;
+    border-radius: 20px;
+    border: 2px solid rgb(231, 214, 182);
+}

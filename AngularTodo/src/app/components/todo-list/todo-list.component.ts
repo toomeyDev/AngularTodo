@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { TodoStorageService } from 'src/app/todo-storage.service';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
+  providers: [ TodoStorageService ]
 })
 export class TodoListComponent implements OnInit {
 
@@ -12,7 +14,10 @@ export class TodoListComponent implements OnInit {
   inputName?:String="";
   inputDescription?:String="";
 
-  constructor() { }
+  // store test data to ensure TodoStorageService is working
+  dataStorageTest:string="";
+
+  constructor(private service: TodoStorageService) { }
 
   ngOnInit(): void {
     this.todoItems = [
@@ -43,6 +48,19 @@ export class TodoListComponent implements OnInit {
     )
     this.inputName=""; 
     this.inputDescription="";
+  }
+
+  // methods to interact with the data storage service
+  storeItem(value:string) {
+    this.service.setItem(this.service.testStorage, value);
+  }
+
+  getItem() {
+    console.log(this.service.getItem(this.service.testStorage));
+  }
+  
+  removeItem() {
+    this.service.removeItem(this.service.testStorage);
   }
 
 }

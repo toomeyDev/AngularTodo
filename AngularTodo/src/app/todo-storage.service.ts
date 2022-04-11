@@ -6,11 +6,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 })
 export class TodoStorageService {
 
-  // placeholder storage to test service function
-  testStorage:string = 'Default';
-
   // keep track of todo item components for persistent storage
-  todoItemStorage:TodoItemComponent[] = [];
+  todoItemStorage:string[] = []
 
   constructor() { }
 
@@ -20,6 +17,10 @@ export class TodoStorageService {
 
   public getItem(key: string) {
     return localStorage.getItem(key);
+  }
+
+  public getTodoItems() {
+    return this.todoItemStorage;
   }
 
   public removeItem(key: string) {

@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   constructor(private service: TodoStorageService) { }
 
   ngOnInit(): void {
-    this.todoItems = [
+    this.todoItems = [ 
       new TodoItemComponent("Task", "A task that needs doing"),
       new TodoItemComponent("Important Task", "An important task."),
       new TodoItemComponent("Buy Groceries", "Need to buy groceries.")
@@ -51,16 +51,20 @@ export class TodoListComponent implements OnInit {
   }
 
   // methods to interact with the data storage service
-  storeItem(value:string) {
-    this.service.setItem(this.service.testStorage, value);
+  storeItem(value:string, id:number) {
+    this.service.setItem(this.service.todoItemStorage[id], value);
   }
 
-  getItem() {
-    console.log(this.service.getItem(this.service.testStorage));
+  getItem(id:number) {
+    console.log(this.service.getItem(this.service.todoItemStorage[id]));
   }
   
-  removeItem() {
-    this.service.removeItem(this.service.testStorage);
+  getTodoItems() {
+    return this.service.getTodoItems();
+  }
+
+  removeItem(id:number) {
+    this.service.removeItem(this.service.todoItemStorage[id]);
   }
 
 }

@@ -19,7 +19,12 @@
     </div>
 </div>
 <div class="StorageControls">
-    <button (click)="storeItem('A new Item')">Test addItem</button>
-    <button (click)="getItem()">Test getItem</button>
-    <button (click)="removeItem()">Test removeItem</button>
+    <!-- test data persistence service, store new items, get most recent item, delete most recent item in console -->
+    <form>
+        <input type="text" class = "storageTestName" placeholder="Enter item name...">
+        <input type="text" class = "storageTestDescription" placeholder="Enter item description...">
+        <button (click)="storeItem('A new Item', getTodoItems().length)">Test addItem</button>
+        <button (click)="getItem(getTodoItems().length)">Test getItem</button>
+        <button (click)="removeItem(getTodoItems().length)">Test removeItem</button>
+    </form>
 </div>

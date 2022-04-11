@@ -20,4 +20,15 @@ export class TodoListComponent implements OnInit {
     ];
   }
 
+  toggleFinished(id:number) {
+    this.todoItems?.map((value, index) => {
+      if (index == id) value.isComplete = !value.isComplete; // toggle isComplete to track whether a task is done or not 
+    })
+  }
+
+  deleteItem(id:number) {
+    this.todoItems = this.todoItems?.filter((value, i) => i != id); 
+    // filter out items matching the current index where method is triggered
+  }
+
 }

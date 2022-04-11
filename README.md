@@ -1,2 +1,2 @@
 # AngularTodo
-Todo application written in Angular 13.
+Todo application written as a learning experiment with Angular.

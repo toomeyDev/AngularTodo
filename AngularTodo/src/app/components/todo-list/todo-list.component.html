@@ -1,8 +1,16 @@
 <div class="TodoList">
-    <div class="TodoItem" *ngFor="let item of todoItems; let i = index;">
-        <div class="idNum">{{i}}</div>
-        <div class="content">{{item.name}}</div>
-        <button class="delete">Delete</button>
-        <button class="recolor">Recolor</button>
+    <h2>Todo List</h2>
+    <div *ngFor="let item of todoItems; let id = index;" 
+    class="TodoItem {{ (item.isComplete ? 'completed' : '') }}" (click)="toggleFinished(id)">
+        
+        <div class="TodoContent">
+            <div class="idNum">{{id}}</div>
+            <div class="TodoName">{{item.name}}</div>
+            <div class="TodoDescription">{{item.description}}</div>
+        </div>
+        <div class=TodoControls>
+            <button class="delete" (click)="deleteItem(id)">Delete</button>
+            <button class="recolor">Recolor</button>
+        </div>        
     </div>
 </div>

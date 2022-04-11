@@ -1,0 +1,54 @@
+.TodoList {
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.TodoList h2 {
+    flex: 1 0 100%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: wheat;
+    padding-bottom: 2%;
+}
+
+.TodoItem {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: wheat;
+}
+
+.TodoItem:nth-child(even) {
+    background-color: rgb(231, 214, 181);
+}
+
+.TodoItem:last-of-type {
+    border-radius: 0px 0px 20px 20px;
+}
+
+.TodoContent {
+    flex: 4 1 100px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.TodoControls {
+    flex: 1 2 100px;
+    justify-content: center;
+}
+
+
+.TodoItem .idNum {
+    flex: 1, 1, 5px;
+}
+
+.TodoItem .content {
+    flex: 1, 1, 5px;
+}
+
+.TodoItem.completed {
+    text-decoration: line-through;
+    color: red;
+}

@@ -24,7 +24,12 @@ form input {
 }
 
 .itemSubmit {
-    background-color: rgb(206, 200, 179);;
+    background-color: rgb(206, 200, 179);
+}
+
+.itemSubmit:hover {
+    background-color: green;
+    color: yellow;
 }
 
 button {
@@ -102,21 +107,25 @@ button:hover {
 }
 
 .StorageControls {
-    margin-top: 2%;
+    margin-top: 0.5%;
     display: flex;
     justify-content: center;
     background-color: rgb(252, 237, 209);
     padding: 0.55%;
     border-radius: 20px;
-    border: 2px solid rgb(231, 214, 182);
+    border-bottom: 2px solid rgb(231, 214, 182);
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    gap: 1%;
 }
 
 .StorageControls button {
-    display: span;
-    flex: 1 0 auto;
+    flex: 1;
     background-color: rgb(219, 214, 196);
+}
+
+.StorageControls button:hover {
+    background-color: green;
 }

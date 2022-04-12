@@ -14,12 +14,12 @@
             <div class="TodoDescription">{{item.description}}</div>
         </div>
         <div class=TodoControls>
-            <button class="delete" (click)="deleteItem(id)">Delete</button>
+            <button class="Delete" (click)="deleteItem(id)">Delete</button>
         </div>        
     </div>
 </div>
 <div class="StorageControls">
-    <button (click)="save()">Save Entries</button>
+    <button (click)="save()" clas="Save">Save Entries</button>
     <button (click)="ngOnInit()">Discard Changes</button>
     <button (click)="reset()">Reset</button>
 </div>

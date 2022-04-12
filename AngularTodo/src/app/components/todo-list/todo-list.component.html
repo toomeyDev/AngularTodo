@@ -19,12 +19,7 @@
     </div>
 </div>
 <div class="StorageControls">
-    <!-- test data persistence service, store new items, get most recent item, delete most recent item in console -->
-    <form>
-        <input type="text" name = "inputStorageName" placeholder="Enter item name..." class = "StorageNameInput"[(ngModel)]="inputStorageName"/>
-        <input type="text" name = "inputDescriptionName" placeholder="Enter item description..." class="StorageDescriptionInput"[(ngModel)]="inputDescriptionName"/>
-        <button (click)="storeItem(getTodoItems.length-1)">Test addItem</button>
-        <button (click)="getItem(getTodoItems().length-1)">Test getItem</button>
-        <button (click)="removeItem(getTodoItems().length-1)">Test removeItem</button>
-    </form>
+    <button (click)="save()">Save Entries</button>
+    <button (click)="ngOnInit()">Discard Changes</button>
+    <button (click)="reset()">Reset</button>
 </div>

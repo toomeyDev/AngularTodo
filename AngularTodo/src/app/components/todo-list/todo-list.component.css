@@ -103,10 +103,10 @@ button:hover {
 
 .StorageControls {
     margin-top: 2%;
-    display: block;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: center;
     background-color: rgb(252, 237, 209);
-    padding: 0.25%;
+    padding: 0.55%;
     border-radius: 20px;
     border: 2px solid rgb(231, 214, 182);
     width: 50%;
@@ -115,7 +115,8 @@ button:hover {
     margin-bottom: 2%;
 }
 
-.StorageControls form {
-    display: flex;
-    gap: 2%;
+.StorageControls button {
+    display: span;
+    flex: 1 0 auto;
+    background-color: rgb(219, 214, 196);
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoItemComponent implements OnInit {
 
-  name?:String;
-  description?:String;
-  isComplete?:boolean;
+  @Input() name?:String;
+  @Input() description?:String;
+  @Input() isComplete?:boolean;
 
   constructor(name:String="Name", description:String="Description") { 
     this.name = name;

@@ -14,17 +14,14 @@ export class TodoListComponent implements OnInit {
   inputName?:String="";
   inputDescription?:String="";
 
-  inputStorageName?:String="";
-  inputDescriptionName?:String="";
-
   constructor(private service: TodoStorageService) { }
 
-  ngOnInit(): void {
-    this.todoItems = [ 
-      new TodoItemComponent("Task", "A task that needs doing"),
-      new TodoItemComponent("Important Task", "An important task."),
-      new TodoItemComponent("Buy Groceries", "Need to buy groceries.")
-    ];
+  ngOnInit(): void {   
+    // load in any tasks present in the storage service
+    this.load();
+
+    // populate the application with some sample tasks if none are present at first init
+    this.checkEmpty();
   }
 
   toggleFinished(id:number) {
@@ -33,12 +30,32 @@ export class TodoListComponent implements OnInit {
     })
   }
 
+  // check if the todoItems array is null, if yes then assign default values to populate application
+  checkEmpty(): void{
+    if(!this.todoItems){
+      this.todoItems = [
+        new TodoItemComponent(
+          "A task which needs to be completed",
+          "This task urgently needs to be completed."
+        ),
+        new TodoItemComponent(
+          "Go to the grocery store",
+          "Need to buy food at the grocery store."
+        ),
+        new TodoItemComponent(
+          "Write a todo list",
+          "Need to remember to write a todo list."
+        )
+      ]      
+    }
+  }
+
   deleteItem(id:number) {
     this.todoItems = this.todoItems?.filter((value, i) => i != id); 
     // filter out items matching the current index where method is triggered
   }
 
-  addItem() {
+  addItem(): void {
     // assign default values for the forms if none are present at time of method trigger
     if(!this.inputName) this.inputName = "Task Name";
     if(!this.inputDescription) this.inputDescription = "Description";
@@ -50,21 +67,37 @@ export class TodoListComponent implements OnInit {
     this.inputDescription="";
   }
 
-  // methods to interact with the data storage service
-  storeItem(id:number) {
-    this.service.setItem(this.service.todoItemStorage[id], this.inputStorageName!.toString());
+  // handle saving task data to the storage service
+  save(): void {
+    let stringOut = JSON.stringify(this.todoItems)
+    this.storeItem(stringOut);
   }
 
-  getItem(id:number) {
-    console.log(this.service.getItem(this.service.todoItemStorage[id]));
+  // handle loading task data from the storage service
+  load(): void {
+    this.todoItems = this.service.getTodoItems();
   }
-  
-  getTodoItems() {
+
+  // reset tasks to default sample values
+  reset(): void {
+    this.todoItems = [];
+    this.service.clear();
+    this.checkEmpty();
+  }
+
+  // store an item into the todo storage service
+  storeItem(value?): void {
+    this.service.setItem('todoItemStorage', value);
+  }
+
+  // get an item from the todo storage service
+  getItem(value?): string | null {
+    return this.service.getItem(value);
+  }
+
+  // get the task objects currently stored from the todo storage service
+  getTodoItems(): any {
     return this.service.getTodoItems();
-  }
-
-  removeItem(id:number) {
-    this.service.removeItem(this.service.todoItemStorage[id]);
   }
 
 }

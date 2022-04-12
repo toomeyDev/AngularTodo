@@ -6,10 +6,12 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 })
 export class TodoStorageService {
 
-  // keep track of todo item components for persistent storage
-  todoItemStorage:string[] = []
+  /* keep track of changes to localstorage for persistent (while browser is open)
+  *  storage of tasks present in the application
+  */
 
-  constructor() { }
+  constructor() {
+  }
 
   public setItem(key: string, value: string){
     localStorage.setItem(key, value);
@@ -20,11 +22,11 @@ export class TodoStorageService {
   }
 
   public getTodoItems() {
-    return this.todoItemStorage;
+    return JSON.parse(localStorage.getItem('todoItemStorage')!);
   }
 
   public removeItem(key: string) {
-    localStorage.removeItem(key);
+    localStorage.removeItem('todoItemStorage[2]');
   }
 
   public clear() {
